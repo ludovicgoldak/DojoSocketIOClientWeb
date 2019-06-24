@@ -1,0 +1,34 @@
+
+.card-console-container {
+  height: 84.5vh;
+
+  .card-console {
+    height: 100%;
+  }
+}
+
+
+:host {
+  background-color: #272727;
+
+  .console {
+    height: calc(100% - 36px);
+  }
+
+  .console-form {
+    display: flex;
+
+    .input-console {
+      flex-grow: 1;
+      font-size: 13pt;
+      background-color: #303030;
+      color: white;
+      border: 1px solid #404040;
+    }
+
+
+    .send-button {
+      //max-height: 27px;
+    }
+  }
+}

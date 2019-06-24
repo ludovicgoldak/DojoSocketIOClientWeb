@@ -1,0 +1,11 @@
+<div class="card-console-container">
+  <mat-card class="card-console">
+    <div class="console">
+      <app-console [logs]="socket.logs"></app-console>
+    </div>
+    <form [formGroup]="formConsole" class="console-form" name="consoleForm">
+      <input class="input-console" formControlName="input" name="text" type="text" (keypress)="keypress($event)"/>
+      <button (click)="submit()" class="send-button" color="primary" mat-flat-button>Envoyer</button>
+    </form>
+  </mat-card>
+</div>

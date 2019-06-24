@@ -1,0 +1,6 @@
+<div class="user-list-content">
+  <mat-list>
+    <mat-list-item *ngFor="let user of socket.users" [style.color]="user.color"
+                   [style.font-size]="Math.min(user.size, 80) + 'px'">{{user.name}}</mat-list-item>
+  </mat-list>
+</div>
