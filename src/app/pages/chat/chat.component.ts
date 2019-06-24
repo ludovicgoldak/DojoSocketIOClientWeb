@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SocketService } from '../../service/socket.service';
-import { ChangeWeightRequestMessage } from '../../models/packets/ChangeWeightRequestMessage';
 
 @Component({
   selector: 'app-tchat',
@@ -16,6 +15,6 @@ export class ChatComponent implements OnInit {
   }
 
   change() {
-    this.socket.socket.send('ChangeWeightRequestMessage', { newWeight: 10000 } as ChangeWeightRequestMessage);
+
   }
 }

@@ -1,4 +1,4 @@
-import {UserInformations} from '../types/UserInformations';
+import {UserInformations} from './UserInformations';
 
 export class UserConnectedMessage {
     public userInformations: UserInformations;

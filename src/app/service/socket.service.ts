@@ -8,7 +8,6 @@ import { IdentificationRequestMessage } from '../models/packets/IdentificationRe
 import { IdentificationTypeEnum } from '../models/enums/IdentificationTypeEnum';
 import { IdentificationSucessMessage } from '../models/packets/IdentificationSucessMessage';
 import { IdentificationFailedMessage } from '../models/packets/IdentificationFailedMessage';
-import { UserInformations } from '../models/types/UserInformations';
 import { CreateAccountErrorMessage } from '../models/packets/CreateAccountErrorMessage';
 import { CreateAccountRequestMessage } from '../models/packets/CreateAccountRequestMessage';
 import { ServerInformationsMessage } from '../models/packets/ServerInformationsMessage';
@@ -18,6 +17,7 @@ import { NewLogMessage } from '../models/packets/newLogMessage';
 import { CustomLog } from '../features/console/models/custom-log';
 import { UserInformationsUpdated } from '../models/packets/UserInformationsUpdated';
 import { LogsUpdated } from '../models/packets/LogsUpdated';
+import { UserInformations } from '../models/packets/UserInformations';
 
 const log = debug('dojo:socketService');
 
