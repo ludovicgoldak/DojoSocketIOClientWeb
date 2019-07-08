@@ -18,6 +18,8 @@ import { CustomLog } from '../features/console/models/custom-log';
 import { UserInformationsUpdated } from '../models/packets/UserInformationsUpdated';
 import { LogsUpdated } from '../models/packets/LogsUpdated';
 import { UserInformations } from '../models/packets/UserInformations';
+import { BackgroundChangeRequestMessage } from '../models/packets/BackgroundChangeRequestMessage';
+import { BackgroundChangedMessage } from '../models/packets/BackgroundChangedMessage';
 
 const log = debug('dojo:socketService');
 
@@ -30,6 +32,7 @@ export class SocketService extends Dispatcher {
   public logs: CustomLog[] = [];
   public users: UserInformations[] = [];
   public socket: SocketManager;
+  public colorTchat = 'white';
   private userInformations: UserInformations;
 
   constructor(private socketService: Socket) {
@@ -56,6 +59,7 @@ export class SocketService extends Dispatcher {
     wrapper.on('socket::disconnected', () => {
       alert('Socket disconnect');
       log('Socket disconnected');
+      this.socket.disconnect('Disconnected');
       this.identified = false;
     });
     wrapper.on('packet::IdentificationSucessMessage', (packet: IdentificationSucessMessage) => {
@@ -65,6 +69,7 @@ export class SocketService extends Dispatcher {
     wrapper.on('packet::ServerInformationsMessage', (packet: ServerInformationsMessage) => {
       this.users = packet.users;
       this.logs = packet.logs;
+      this.colorTchat = packet.colorTchat;
       this.users.sort((a, b) => {
         return b.weight - a.weight;
       });
@@ -100,6 +105,9 @@ export class SocketService extends Dispatcher {
       this.users.sort((a, b) => {
         return b.weight - a.weight;
       });
+    });
+    wrapper.on('packet::BackgroundChangedMessage', (packet: BackgroundChangedMessage) => {
+      this.colorTchat = packet.newColor;
     });
   }
 
@@ -151,4 +159,12 @@ export class SocketService extends Dispatcher {
       } as IdentificationRequestMessage);
     });
   }
+
+
+  public changeBackgroundColor(newColor: string) {
+    this.socket.send('BackgroundChangeRequestMessage', {
+      newColor
+    } as BackgroundChangeRequestMessage);
+  }
+
 }

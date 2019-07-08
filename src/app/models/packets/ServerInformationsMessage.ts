@@ -4,4 +4,5 @@ import { UserInformations } from './UserInformations';
 export class ServerInformationsMessage {
   users: UserInformations[];
   logs: CustomLog[];
+  colorTchat: string;
 }

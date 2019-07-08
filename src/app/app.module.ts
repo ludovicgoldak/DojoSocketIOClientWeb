@@ -12,7 +12,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { ROUTES } from './app.routes';
 import { ChatModule } from './pages/chat/chat.module';
 
-const config: SocketIoConfig = { url: 'http://93.115.96.27:8002', options: {} };
+// const config: SocketIoConfig = { url: 'http://93.115.96.27:8002', options: {} };
+const config: SocketIoConfig = { url: 'http://51.15.201.79:8002', options: {} };
 
 @NgModule({
   declarations: [
